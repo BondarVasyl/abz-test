@@ -1,0 +1,453 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel Test Project Documentation",
+        "description": "",
+        "contact": {
+            "email": "dnisternet2000@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/api/v1/positions": {
+            "get": {
+                "tags": [
+                    "Positions"
+                ],
+                "summary": "Get list of positions",
+                "description": "Returns list of positions",
+                "operationId": "getPositionsList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "": {
+                                            "description": "Positions objects",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "id",
+                                                    "format": "integer",
+                                                    "default": "1"
+                                                },
+                                                "name": {
+                                                    "description": "name",
+                                                    "format": "string",
+                                                    "default": "Security"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "format": "positions"
+                                        },
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/token": {
+            "get": {
+                "tags": [
+                    "Token"
+                ],
+                "summary": "Get Token",
+                "description": "Return token for user creation",
+                "operationId": "gettoken",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "token": {
+                                            "description": "token",
+                                            "format": "string",
+                                            "default": "4Zh503cQrJYHT5jTo6tqHBdyHyzodZoeq1xTqSNLTwczlcnokRsP9EIkkyO5htZP8dfJSMl9QGr8K3nnESTtKtybiPenmQVtCkXmudg50BwvM4VAS3Z55waqm7lvDCy96jW0BdVF4aPEsXN9IwXlfWnHbDVghVgfVn0QAwvx5yqufVCTwCmn2gUOzB0DQ01GX6SWYt5srq3mY7V88Z2VY4eMgTcwyFCMELcDTKra9tnO6nOaf5Ed4yGYCBWjTMxW3RvT5mYeZkDcYqunnd5j"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get list of users",
+                "description": "Returns list of users",
+                "operationId": "getUsersList",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "count",
+                        "schema": {
+                            "type": "integer",
+                            "example": 6
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "users": {
+                                            "description": "Users objects",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "id",
+                                                    "format": "integer",
+                                                    "default": "1"
+                                                },
+                                                "name": {
+                                                    "description": "name",
+                                                    "format": "string",
+                                                    "default": "Dr. Isabell Bartoletti"
+                                                },
+                                                "email": {
+                                                    "description": "email",
+                                                    "format": "string",
+                                                    "default": "lleuschke@example.org"
+                                                },
+                                                "phone": {
+                                                    "description": "phone",
+                                                    "format": "string",
+                                                    "default": "1-586-986-4004"
+                                                },
+                                                "position": {
+                                                    "description": "position",
+                                                    "format": "string",
+                                                    "default": "Content manager"
+                                                },
+                                                "position_id": {
+                                                    "description": "position_id",
+                                                    "format": "integer",
+                                                    "default": "3"
+                                                },
+                                                "registration_timestamp": {
+                                                    "description": "registration_timestamp",
+                                                    "format": "integer",
+                                                    "default": "1685273824"
+                                                },
+                                                "photo": {
+                                                    "description": "photo",
+                                                    "format": "string",
+                                                    "default": "https://via.placeholder.com/640x480.png/0000cc?text=reiciendis"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "links": {
+                                            "description": "Pagination links",
+                                            "properties": {
+                                                "first": {
+                                                    "description": "first",
+                                                    "format": "string",
+                                                    "default": "http://127.0.0.1:8000/api/v1/users?page=1"
+                                                },
+                                                "last": {
+                                                    "description": "last",
+                                                    "format": "string",
+                                                    "default": "http://127.0.0.1:8000/api/v1/users?page=9"
+                                                },
+                                                "prev": {
+                                                    "description": "prev",
+                                                    "format": "string",
+                                                    "default": "http://127.0.0.1:8000/api/v1/users?page=9"
+                                                },
+                                                "next": {
+                                                    "description": "next",
+                                                    "format": "string",
+                                                    "default": "http://127.0.0.1:8000/api/v1/users?page=9"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "description": "Pagination meta",
+                                            "properties": {
+                                                "current_page": {
+                                                    "description": "current_page",
+                                                    "format": "integer",
+                                                    "default": "1"
+                                                },
+                                                "from": {
+                                                    "description": "from",
+                                                    "format": "integer",
+                                                    "default": "1"
+                                                },
+                                                "last_page": {
+                                                    "description": "last_page",
+                                                    "format": "integer",
+                                                    "default": "9"
+                                                },
+                                                "links": {
+                                                    "description": "links",
+                                                    "properties": {
+                                                        "url": {
+                                                            "description": "url",
+                                                            "format": "string",
+                                                            "default": "http://127.0.0.1:8000/api/v1/users?page=1"
+                                                        },
+                                                        "label": {
+                                                            "description": "label",
+                                                            "format": "integer",
+                                                            "default": "1"
+                                                        },
+                                                        "active": {
+                                                            "description": "active",
+                                                            "format": "boolean",
+                                                            "default": "true"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "path": {
+                                                    "description": "path",
+                                                    "format": "string",
+                                                    "default": "http://127.0.0.1:8000/api/v1/users"
+                                                },
+                                                "per_page": {
+                                                    "description": "per_page",
+                                                    "format": "integer",
+                                                    "default": "5"
+                                                },
+                                                "to": {
+                                                    "description": "to",
+                                                    "format": "integer",
+                                                    "default": "5"
+                                                },
+                                                "total": {
+                                                    "description": "total",
+                                                    "format": "integer",
+                                                    "default": "45"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{user}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get single user",
+                "description": "Get single user",
+                "operationId": "getSingleUser",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "User id",
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "user": {
+                                            "description": "User objects",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "id",
+                                                    "format": "integer",
+                                                    "default": "1"
+                                                },
+                                                "name": {
+                                                    "description": "name",
+                                                    "format": "string",
+                                                    "default": "Dr. Isabell Bartoletti"
+                                                },
+                                                "email": {
+                                                    "description": "email",
+                                                    "format": "string",
+                                                    "default": "lleuschke@example.org"
+                                                },
+                                                "phone": {
+                                                    "description": "phone",
+                                                    "format": "string",
+                                                    "default": "1-586-986-4004"
+                                                },
+                                                "position": {
+                                                    "description": "position",
+                                                    "format": "string",
+                                                    "default": "Content manager"
+                                                },
+                                                "position_id": {
+                                                    "description": "position_id",
+                                                    "format": "integer",
+                                                    "default": "3"
+                                                },
+                                                "registration_timestamp": {
+                                                    "description": "registration_timestamp",
+                                                    "format": "integer",
+                                                    "default": "1685273824"
+                                                },
+                                                "photo": {
+                                                    "description": "photo",
+                                                    "format": "string",
+                                                    "default": "https://via.placeholder.com/640x480.png/0000cc?text=reiciendis"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "format": "user"
+                                        },
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create user",
+                "description": "Create user",
+                "operationId": "createUser",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Token",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Create user parameters",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "string"
+                                    },
+                                    "position_id": {
+                                        "description": "id from positions list",
+                                        "type": "integer",
+                                        "format": "integer"
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "user_id": {
+                                            "type": "integer",
+                                            "example": "46"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "New user successfully registered"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

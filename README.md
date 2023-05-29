@@ -1,4 +1,4 @@
-# Laravel api template
+# Laravel abz - test project
 
 ## Run Locally
 
@@ -62,12 +62,6 @@ Run server
 
 ```bash
   php artisan serve
-```
-
-And create default theme
-
-```bash
-  php artisan theme:create default
 ```
 
 To see api documentation visit: ${APP_URL}/api/documentation page
